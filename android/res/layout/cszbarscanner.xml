@@ -1,66 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#ECECEC">
+
+  <FrameLayout
     android:id="@+id/csZbarScannerView"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/csZbarScannerBackground" >
+    android:layout_above="@+id/rlSearch"
+    android:background="@color/csZbarScannerBackground">
 
-    <TextView android:id="@+id/csZbarScannerTitle"
+
+    <TextView
+      android:id="@+id/csZbarScannerInstructions"
+      android:layout_width="296dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center|bottom"
+      android:fontFamily="sans-serif-light"
+      android:gravity="center"
+      android:paddingBottom="15dp"
+      android:paddingLeft="5dp"
+      android:paddingRight="5dp"
+      android:paddingTop="5dp"
+      android:text="@string/csZbarScannerInstructions"
+      android:textColor="@color/csZbarScannerTextColor"
+      android:textSize="8pt"/>
+
+    <RelativeLayout
+      android:id="@+id/csZbarScannerSightContainer"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal|bottom">
+
+      <View
+        android:id="@+id/csZbarScannerSight"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center_horizontal"
-        android:paddingTop="15dp"
-        android:paddingBottom="5dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:gravity="center"
-        android:text="@string/csZbarScannerTitle"
-        android:textColor="@color/csZbarScannerTextColor"
+        android:layout_height="1dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ff0000"
+        android:gravity="center_vertical"/>
+
+      <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
         android:background="@color/csZbarScannerTextBackground"
-        android:fontFamily="sans-serif-light"
-        android:textSize="15pt" />
-
-    <TextView android:id="@+id/csZbarScannerInstructions"
-        android:layout_gravity="center|top"
-        android:layout_width="296dp"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="15dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:gravity="center"
-        android:textSize="8pt"
-        android:textColor="@color/csZbarScannerTextColor"
-        android:fontFamily="sans-serif-light"
-        android:text="@string/csZbarScannerInstructions" />
-
-    <RelativeLayout android:id="@+id/csZbarScannerSightContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal|bottom">
-
-        <View android:id="@+id/csZbarScannerSight"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_centerInParent="true"
-            android:gravity="center_vertical"
-            android:background="#ff0000" />
-
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="70dp"
-            android:id="@+id/imageButton"
-            android:src="@drawable/camera_flash"
-            android:background="@color/csZbarScannerTextBackground"
-            android:onClick="toggleFlash"
-            android:longClickable="true"
-            android:visibility="visible"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true" />
+        android:longClickable="true"
+        android:onClick="toggleFlash"
+        android:src="@drawable/camera_flash"
+        android:visibility="visible"/>
 
     </RelativeLayout>
 
-</FrameLayout>
+  </FrameLayout>
+
+  <RelativeLayout
+    android:id="@+id/rlSearch"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_above="@+id/btnLogin"
+    android:layout_margin="10dp"
+    android:background="#FFFFFF">
+
+    <EditText
+      android:id="@+id/edtSearch"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:background="@null"
+      android:hint="Search magazine by name"
+      android:padding="10dp"/>
+
+    <RelativeLayout
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:layout_alignParentRight="true"
+      android:background="#D45104">
+
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:src="@drawable/ic_search"/>
+    </RelativeLayout>
+  </RelativeLayout>
+
+  <Button
+    android:id="@+id/btnLogin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="10dp"
+    android:background="#D45104"
+    android:text="LOGIN"
+    android:textColor="#FFFFFF"
+    android:textSize="18sp"/>
+</RelativeLayout>
