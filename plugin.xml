@@ -14,7 +14,7 @@
     <keywords>cszbar,zbar,barcode,qr,qr code,scanner</keywords>
 
     <js-module src="www/zbar.js" name="zBar">
-        <clobbers target="cordova.plugins.zBar" />
+        <clobbers target="cordova.plugins.cszbar" />
     </js-module>
 
     <platform name="android">
