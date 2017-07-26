@@ -88,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:src="@drawable/camera_flash"/>
+        android:src="@drawable/ic_search"/>
     </RelativeLayout>
   </RelativeLayout>
 
@@ -99,6 +99,7 @@
     android:layout_alignParentBottom="true"
     android:layout_margin="10dp"
     android:background="#D45104"
+    android:padding="10dp"
     android:text="LOGIN"
     android:textColor="#FFFFFF"
     android:textSize="18sp"/>
