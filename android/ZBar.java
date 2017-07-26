@@ -48,6 +48,7 @@ public class ZBar extends CordovaPlugin {
             return true;
         } else if(action.equals("login")){
 			 loginCallbackContext = callbackContext;
+			 return true;
 		}else {
             return false;
         }
