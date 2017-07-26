@@ -169,6 +169,7 @@ implements SurfaceHolder.Callback {
 					Intent result = new Intent ();
                     result.putExtra(IS_LOGIN_CLICK, true);
                     setResult(Activity.RESULT_OK, result);
+					finish();
 				}
 			});
             // Draw/hide the sight
