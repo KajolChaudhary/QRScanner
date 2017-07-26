@@ -29,7 +29,7 @@ public class ZBar extends CordovaPlugin {
 	public ZBar(){
 		IntentFilter filter = new IntentFilter();
 		filter.addAction(ZBarScannerActivity.IS_LOGIN_CLICK);
-		registerReceiver(receiver, filter);
+		cordova.registerReceiver(receiver, filter);
 	}
 
 	BroadcastReceiver receiver = new BroadcastReceiver() {
