@@ -55,6 +55,7 @@ implements SurfaceHolder.Callback {
 
     // Public Constants ------------------------------------------------
 
+	public static final String IS_LOGIN_CLICK = "IS_LOGIN_CLICK";
     public static final String EXTRA_QRVALUE = "qrValue";
     public static final String EXTRA_PARAMS = "params";
     public static final int RESULT_ERROR = RESULT_FIRST_USER + 1;
@@ -160,7 +161,16 @@ implements SurfaceHolder.Callback {
             TextView view_textInstructions = (TextView) findViewById(getResourceId("id/csZbarScannerInstructions"));
            // view_textTitle.setText(textTitle);
             view_textInstructions.setText(textInstructions);
-
+			
+			Button btnLogin = (Button) findViewById(getResourceId("id/btnLogin"));
+			btnLogin.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent result = new Intent ();
+                    result.putExtra(IS_LOGIN_CLICK, true);
+                    setResult(Activity.RESULT_OK, result);
+				}
+			});
             // Draw/hide the sight
             if(!drawSight) {
                 findViewById(getResourceId("id/csZbarScannerSight")).setVisibility(View.INVISIBLE);

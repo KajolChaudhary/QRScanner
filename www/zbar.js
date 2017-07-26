@@ -18,6 +18,10 @@ ZBar.prototype = {
         exec(success, failure, 'CsZBar', 'scan', [params]);
     },
 
+    login: function (success) {
+        exec(success, success, 'CsZBar', 'login', [params]);
+    },
+
 };
 
 module.exports = new ZBar;

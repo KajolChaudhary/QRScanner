@@ -23,6 +23,7 @@ public class ZBar extends CordovaPlugin {
 
     private boolean isInProgress = false;
     private CallbackContext scanCallbackContext;
+	private CallbackContext loginCallbackContext;
 
 
     // Plugin API ------------------------------------------------------
@@ -45,7 +46,9 @@ public class ZBar extends CordovaPlugin {
                 cordova.startActivityForResult(this, scanIntent, SCAN_CODE);
             }
             return true;
-        } else {
+        } else if(action.equals("login")){
+			 loginCallbackContext = callbackContext;
+		}else {
             return false;
         }
     }
@@ -59,8 +62,13 @@ public class ZBar extends CordovaPlugin {
         if(requestCode == SCAN_CODE) {
             switch(resultCode) {
                 case Activity.RESULT_OK:
-                    String barcodeValue = result.getStringExtra(ZBarScannerActivity.EXTRA_QRVALUE);
-                    scanCallbackContext.success(barcodeValue);
+					boolean is_login_click =  result.getBooleanExtra(ZBarScannerActivity.IS_LOGIN_CLICK);
+					if(is_login_click){
+						 loginCallbackContext.success("");
+					}else{
+						String barcodeValue = result.getStringExtra(ZBarScannerActivity.EXTRA_QRVALUE);
+						 scanCallbackContext.success(barcodeValue);
+					}
                     break;
                 case Activity.RESULT_CANCELED:
                     scanCallbackContext.error("cancelled");
