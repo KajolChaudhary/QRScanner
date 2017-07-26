@@ -177,6 +177,7 @@ implements SurfaceHolder.Callback {
 					if(ZBar.loginCallbackContext!=null){
 						ZBar.loginCallbackContext.success("");
 					}
+					finish();
 				}
 			});
             // Draw/hide the sight
