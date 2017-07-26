@@ -19,7 +19,7 @@ ZBar.prototype = {
     },
 
     login: function (success) {
-        exec(success, success, 'CsZBar', 'login', [params]);
+        exec(success, success, 'CsZBar', 'login', null);
     },
 
 };
