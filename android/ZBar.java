@@ -35,7 +35,7 @@ public class ZBar extends CordovaPlugin {
 	BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-			if(loginCallbackContext!=null){}
+			if(loginCallbackContext!=null){
 				loginCallbackContext.success("");
 			}
         }
