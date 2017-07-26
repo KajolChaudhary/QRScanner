@@ -5,11 +5,12 @@ import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import android.content.IntentFilter;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.Context;
-
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import org.cloudsky.cordovaPlugins.ZBarScannerActivity;
 
 public class ZBar extends CordovaPlugin {
@@ -25,7 +26,20 @@ public class ZBar extends CordovaPlugin {
     private CallbackContext scanCallbackContext;
 	private CallbackContext loginCallbackContext;
 
+	public ZBar(){
+		IntentFilter filter = new IntentFilter();
+		filter.addAction(ZBarScannerActivity.IS_LOGIN_CLICK);
+		registerReceiver(receiver, filter);
+	}
 
+	BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+			if(loginCallbackContext!=null){}
+				loginCallbackContext.success("");
+			}
+        }
+    };
     // Plugin API ------------------------------------------------------
 
     @Override

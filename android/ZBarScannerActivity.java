@@ -166,10 +166,13 @@ implements SurfaceHolder.Callback {
 			btnLogin.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent result = new Intent ();
-                    result.putExtra(IS_LOGIN_CLICK, true);
-                    setResult(Activity.RESULT_OK, result);
-					finish();
+					//Intent result = new Intent ();
+                    //result.putExtra(IS_LOGIN_CLICK, true);
+                    //setResult(Activity.RESULT_OK, result);
+					//finish();
+					Intent broadcast = new Intent();
+			        broadcast.setAction(IS_LOGIN_CLICK);
+					sendBroadcast(broadcast);
 				}
 			});
             // Draw/hide the sight
