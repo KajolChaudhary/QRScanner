@@ -62,7 +62,7 @@ public class ZBar extends CordovaPlugin {
         if(requestCode == SCAN_CODE) {
             switch(resultCode) {
                 case Activity.RESULT_OK:
-					boolean is_login_click =  result.getBooleanExtra(ZBarScannerActivity.IS_LOGIN_CLICK);
+					boolean is_login_click =  result.getBooleanExtra(ZBarScannerActivity.IS_LOGIN_CLICK,false);
 					if(is_login_click){
 						 loginCallbackContext.success("");
 					}else{
