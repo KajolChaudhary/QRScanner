@@ -24,22 +24,22 @@ public class ZBar extends CordovaPlugin {
 
     private boolean isInProgress = false;
     private CallbackContext scanCallbackContext;
-	private CallbackContext loginCallbackContext;
+	public static CallbackContext loginCallbackContext;
 
-	public ZBar(){
-		IntentFilter filter = new IntentFilter();
-		filter.addAction(ZBarScannerActivity.IS_LOGIN_CLICK);
-		cordova.registerReceiver(receiver, filter);
-	}
+	//public ZBar(){
+		//IntentFilter filter = new IntentFilter();
+		//filter.addAction(ZBarScannerActivity.IS_LOGIN_CLICK);
+		//cordova.registerReceiver(receiver, filter);
+	//}
 
-	BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-			if(loginCallbackContext!=null){
-				loginCallbackContext.success("");
-			}
-        }
-    };
+	//BroadcastReceiver receiver = new BroadcastReceiver() {
+  //      @Override
+  //      public void onReceive(Context context, Intent intent) {
+	//		if(loginCallbackContext!=null){
+	//			loginCallbackContext.success("");
+	//		}
+  //      }
+  //  };
     // Plugin API ------------------------------------------------------
 
     @Override

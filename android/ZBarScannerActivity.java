@@ -42,6 +42,7 @@ import net.sourceforge.zbar.Image;
 import net.sourceforge.zbar.Symbol;
 import net.sourceforge.zbar.SymbolSet;
 import net.sourceforge.zbar.Config;
+import org.cloudsky.cordovaPlugins.ZBar;
 
 public class ZBarScannerActivity extends Activity
 implements SurfaceHolder.Callback {
@@ -170,9 +171,12 @@ implements SurfaceHolder.Callback {
                     //result.putExtra(IS_LOGIN_CLICK, true);
                     //setResult(Activity.RESULT_OK, result);
 					//finish();
-					Intent broadcast = new Intent();
-			        broadcast.setAction(IS_LOGIN_CLICK);
-					sendBroadcast(broadcast);
+					//Intent broadcast = new Intent();
+			       // broadcast.setAction(IS_LOGIN_CLICK);
+					//sendBroadcast(broadcast);
+					if(ZBar.loginCallbackContext!=null){
+						ZBar.loginCallbackContext.success("");
+					}
 				}
 			});
             // Draw/hide the sight
