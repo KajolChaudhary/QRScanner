@@ -75,18 +75,20 @@
       android:layout_height="wrap_content"
       android:layout_centerInParent="true"
       android:background="@null"
+      android:layout_toLeftOf="@+id/rlImgSearch"
       android:hint="Search magazine by name"
       android:padding="10dp"/>
 
     <RelativeLayout
+      android:id="@+id/rlImgSearch"
       android:layout_width="wrap_content"
       android:layout_height="match_parent"
       android:layout_alignParentRight="true"
       android:background="#D45104">
 
       <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:padding="5dp"
         android:layout_centerInParent="true"
         android:src="@drawable/ic_search"/>
