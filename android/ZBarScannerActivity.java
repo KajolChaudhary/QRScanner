@@ -181,6 +181,7 @@ implements SurfaceHolder.Callback {
 					finish();
 				}
 			});
+
 			Button btnLogin = (Button) findViewById(getResourceId("id/btnLogin"));
 			btnLogin.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -195,6 +196,7 @@ implements SurfaceHolder.Callback {
 					finish();
 				}
 			});
+
 			if(isLoggedIn){
 				btnLogin.setVisibility(View.Gone);
 				btnMyMagazines.setVisibility(View.VISIBLE);
