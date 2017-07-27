@@ -85,6 +85,8 @@ implements SurfaceHolder.Callback {
 
     // Static initialisers (class) -------------------------------------
 
+	EditText edtSearch;
+
     static {
         // Needed by ZBar??
         System.loadLibrary("iconv");
@@ -180,7 +182,8 @@ implements SurfaceHolder.Callback {
 					finish();
 				}
 			});
-			EditText edtSearch= (EditText) findViewById(getResourceId("id/edtSearch"));
+			
+			edtSearch= (EditText) findViewById(getResourceId("id/edtSearch"));
 			RelativeLayout rlImgSearch= (RelativeLayout) findViewById(getResourceId("id/rlImgSearch"));
 			btnLogin.setOnClickListener(new View.OnClickListener() {
 				@Override
