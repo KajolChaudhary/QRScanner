@@ -22,6 +22,10 @@ ZBar.prototype = {
         exec(success, success, 'CsZBar', 'login', null);
     },
 
+    search: function (success) {
+        exec(success, success, 'CsZBar', 'search', null);
+    },
+
 };
 
 module.exports = new ZBar;

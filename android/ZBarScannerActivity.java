@@ -30,6 +30,8 @@ import android.widget.TextView;
 import android.content.pm.PackageManager;
 import android.view.Surface;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -171,15 +173,29 @@ implements SurfaceHolder.Callback {
                     //result.putExtra(IS_LOGIN_CLICK, true);
                     //setResult(Activity.RESULT_OK, result);
 					//finish();
-					//Intent broadcast = new Intent();
-			       // broadcast.setAction(IS_LOGIN_CLICK);
-					//sendBroadcast(broadcast);
 					if(ZBar.loginCallbackContext!=null){
 						ZBar.loginCallbackContext.success("");
 					}
 					finish();
 				}
 			});
+			EditText edtSearch= (EditText) findViewById(getResourceId("id/edtSearch"));
+			RelativeLayout rlImgSearch= (RelativeLayout) findViewById(getResourceId("id/rlImgSearch"));
+			btnLogin.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					if(ZBar.searchContext!=null){
+						String searchtxt = edtSearch.getText().toString().trim();
+						if(searchtxt.length>0){
+							ZBar.searchContext.success(searchtxt);
+						}else{
+							Toast.makeText(this, "Please enter magazine name", Toast.LENGTH_LONG).show();
+						}
+					}
+					finish();
+				}
+			});
+			
             // Draw/hide the sight
             if(!drawSight) {
                 findViewById(getResourceId("id/csZbarScannerSight")).setVisibility(View.INVISIBLE);
