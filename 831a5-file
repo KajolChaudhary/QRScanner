@@ -1,0 +1,12 @@
+tree 3e372b37a1c2161cceaecccd3bd8d57327781937
+
+.gitignore
+LICENSE.md
+README.md
+android/
+ios/
+nbproject/
+npm-debug.log
+package.json
+plugin.xml
+www/
