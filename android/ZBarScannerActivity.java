@@ -33,6 +33,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Collection;
