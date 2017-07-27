@@ -76,6 +76,7 @@ implements SurfaceHolder.Callback {
     // Customisable stuff
     String whichCamera;
     String flashMode;
+	boolean isLoggedIn = false;
 
     // For retrieving R.* resources, from the actual app package
     // (we can't use actual.application.package.R.* in our code as we
@@ -145,6 +146,7 @@ implements SurfaceHolder.Callback {
             String textTitle = params.optString("text_title");
             String textInstructions = params.optString("text_instructions");
             Boolean drawSight = params.optBoolean("drawSight", true);
+			isLoggedIn = params.optBoolean("isLoggedIn", false);
             whichCamera = params.optString("camera");
             flashMode = params.optString("flash");
 
@@ -168,6 +170,16 @@ implements SurfaceHolder.Callback {
            // view_textTitle.setText(textTitle);
             view_textInstructions.setText(textInstructions);
 			
+			Button btnMyMagazines = (Button) findViewById(getResourceId("id/btnMyMagazines"));
+			btnMyMagazines.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					if(ZBar.loginCallbackContext!=null){
+						ZBar.loginCallbackContext.success("");
+					}
+					finish();
+				}
+			});
 			Button btnLogin = (Button) findViewById(getResourceId("id/btnLogin"));
 			btnLogin.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -182,7 +194,13 @@ implements SurfaceHolder.Callback {
 					finish();
 				}
 			});
-			
+			if(isLoggedIn){
+				btnLogin.setVisibility(View.Gone);
+				btnMyMagazines.setVisibility(View.VISIBLE);
+			}else{
+				btnLogin.setVisibility(View.VISIBLE);
+				btnMyMagazines.setVisibility(View.Gone);
+			}
 			edtSearch= (EditText) findViewById(getResourceId("id/edtSearch"));
 			RelativeLayout rlImgSearch= (RelativeLayout) findViewById(getResourceId("id/rlImgSearch"));
 			btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -193,7 +211,8 @@ implements SurfaceHolder.Callback {
 						if(searchtxt.length()>0){
 							ZBar.searchContext.success(searchtxt);
 						}else{
-							Toast.makeText(ZBarScannerActivity.this, "Please enter magazine name", Toast.LENGTH_LONG).show();
+							ZBar.searchContext.error("Please enter magazine name");
+							//Toast.makeText(ZBarScannerActivity.this, "Please enter magazine name", Toast.LENGTH_LONG).show();
 						}
 					}
 					finish();

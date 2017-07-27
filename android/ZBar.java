@@ -26,6 +26,7 @@ public class ZBar extends CordovaPlugin {
     private CallbackContext scanCallbackContext;
 	public static CallbackContext loginCallbackContext;
 	public static CallbackContext searchContext;
+	public static CallbackContext myMagazineContext;
 
 	//public ZBar(){
 		//IntentFilter filter = new IntentFilter();
@@ -66,6 +67,9 @@ public class ZBar extends CordovaPlugin {
 			 return true;
 		}else if(action.equals("search")){
 			 searchContext = callbackContext;
+			 return true;
+		}else if(action.equals("myMagazine")){
+			 myMagazineContext = callbackContext;
 			 return true;
 		}else {
             return false;

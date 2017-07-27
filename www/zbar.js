@@ -13,7 +13,8 @@ ZBar.prototype = {
         if(params.text_title === undefined) params.text_title = "Scan QR Code";
         if(params.text_instructions === undefined) params.text_instructions = "Please point your camera at the QR code.";
         if(params.camera != "front") params.camera = "back";
-        if(params.flash != "on" && params.flash != "off") params.flash = "auto";
+        if (params.flash != "on" && params.flash != "off") params.flash = "auto";
+        // (params.is_logged_in) 
 
         exec(success, failure, 'CsZBar', 'scan', [params]);
     },
@@ -22,8 +23,12 @@ ZBar.prototype = {
         exec(success, success, 'CsZBar', 'login', null);
     },
 
-    search: function (success) {
-        exec(success, success, 'CsZBar', 'search', null);
+    myMagazine: function (success) {
+        exec(success, success, 'CsZBar', 'myMagazine', null);
+    },
+
+    search: function (success, failure) {
+        exec(success, failure, 'CsZBar', 'search', null);
     },
 
 };

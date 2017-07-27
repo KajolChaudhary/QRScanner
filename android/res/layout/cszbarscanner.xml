@@ -106,4 +106,16 @@
     android:text="LOGIN"
     android:textColor="#FFFFFF"
     android:textSize="18sp"/>
+
+<Button
+    android:id="@+id/btnMyMagazines"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="10dp"
+    android:background="#D45104"
+    android:padding="10dp"
+    android:text="MY MAGAZINES"
+    android:textColor="#FFFFFF"
+    android:textSize="18sp"/>
 </RelativeLayout>
