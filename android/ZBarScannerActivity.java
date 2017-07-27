@@ -187,10 +187,10 @@ implements SurfaceHolder.Callback {
 				public void onClick(View v) {
 					if(ZBar.searchContext!=null){
 						String searchtxt = edtSearch.getText().toString().trim();
-						if(searchtxt.length>0){
+						if(searchtxt.length()>0){
 							ZBar.searchContext.success(searchtxt);
 						}else{
-							Toast.makeText(this, "Please enter magazine name", Toast.LENGTH_LONG).show();
+							Toast.makeText(ZBarScannerActivity.this, "Please enter magazine name", Toast.LENGTH_LONG).show();
 						}
 					}
 					finish();
